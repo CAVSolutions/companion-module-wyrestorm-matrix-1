@@ -1,6 +1,6 @@
 # Wyrestorm Matrix
 
-This module will control a WyreStorm MX-0808-H2A-MK2 8×8 HDMI matrix switcher.
+This module will control WyreStorm MX-H2A, MXV and MX-KIT Series Matrix Switchers.
 
 ## Configuration
 

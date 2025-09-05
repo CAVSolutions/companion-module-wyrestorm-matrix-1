@@ -14,7 +14,7 @@ export function GetConfigFields(): SomeCompanionConfigField[] {
 			id: 'info',
 			width: 12,
 			label: 'Information',
-			value: 'This module communicates with Wyrestorm HDMI Matrix Switchers, specifically the MX-0808-H2A-MK2 8×8.',
+			value: 'This module communicates with Wyrestorm MX-H2A, MXV and MX-KIT Series Matrix Switchers',
 		},
 		{
 			type: 'textinput',
