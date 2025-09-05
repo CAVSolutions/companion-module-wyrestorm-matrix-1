@@ -116,9 +116,9 @@ function handleSet(socket, args) {
 function handleGet(socket, args) {
 	const subcmd = args[0].toUpperCase()
 	switch (subcmd) {
-        case 'VER':
-            respond(socket, 'VER 1.0.0')
-            break
+		case 'VER':
+			respond(socket, 'VER 1.0.0')
+			break
 		case 'MP': {
 			const output = args[1]
 			const input = matrix.videoRouting[output] || 'hdmiin1'
