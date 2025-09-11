@@ -1,10 +1,9 @@
 {
 	"name": "wyrestorm-matrix",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "dist/main.js",
 	"type": "module",
 	"scripts": {
-		"postinstall": "husky",
 		"format": "prettier -w .",
 		"package": "run build && companion-module-build",
 		"build": "rimraf dist && run build:main",
