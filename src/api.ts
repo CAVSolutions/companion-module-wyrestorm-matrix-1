@@ -22,7 +22,8 @@ async function executeCommand(self: WyrestormMatrixInstance, command: string): P
 		if (self.config.verbose) {
 			self.log('debug', `Sending command: ${command}`)
 		}
-		self.socket?.send(command + '\n')
+		const sendBuf = Buffer.from(command + '\n', 'latin1')
+		self.socket?.send(sendBuf)
 		self.lastCommand = command
 	} else {
 		self.log('warn', 'Not connected to Device')
