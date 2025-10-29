@@ -83,8 +83,8 @@ export function UpdateActions(self: WyrestormMatrixInstance): void {
 				self.log('debug', `Routing Input ${input} to Output ${output}`)
 			}
 
-			//SET SW hdmiin4 out1
-			const cmd = `SET SW hdmiin${input} out${output}`
+			//SET SW hdmiin4 hdmiout1
+			const cmd = `SET SW hdmiin${input} hdmiout${output}`
 			self.sendCommand(cmd)
 		},
 	}
