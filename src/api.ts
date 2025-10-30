@@ -58,19 +58,15 @@ export async function InitConnection(self: WyrestormMatrixInstance): Promise<voi
 
 		self.socket?.on('data', (data: any) => {
 			try {
+				console.log('Got this: ', data.toString())
 				buffer += data.toString()
-				//might be crlf or just lf
-				const parts = buffer.split('\r\n')
-				if (parts.length === 1) {
-					//no \r\n, try \n
-					parts.splice(0, parts.length, ...buffer.split('\n'))
-				}
-				buffer = parts.pop() || ''
+				//if we have a LF, it is a complete message
+				if (buffer.endsWith('\n')) {
+					const parts = buffer.split('\n')
+					buffer = ''
 
-				for (const part of parts) {
-					if (part.trim()) {
-						const msg = part.trim()
-						ProcessData(self, msg)
+					for (const part of parts) {
+						ProcessData(self, part)
 					}
 				}
 			} catch (e) {
@@ -133,7 +129,7 @@ function ProcessData(self: WyrestormMatrixInstance, msg: any): void {
 		const parts = msg.split(' ')
 		if (parts.length >= 3) {
 			const inputMatch = parts[1].match(/hdmiin(\d+)/) //hdmiin4
-			const outputMatch = parts[2].match(/hdmiout(\d+)/) //out1
+			const outputMatch = parts[2].match(/hdmiout(\d+)/) //hdmiout1
 
 			if (inputMatch && outputMatch) {
 				const inputNum = parseInt(inputMatch[1])
