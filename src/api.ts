@@ -95,10 +95,8 @@ export async function InitConnection(self: WyrestormMatrixInstance): Promise<voi
 
 function RequestData(self: WyrestormMatrixInstance): void {
 	if (self.connected) {
+		SendCommand(self, `GET MP all`)
 		SendCommand(self, 'GET VER')
-		for (let i = 1; i <= (self.config.outputs ?? 1); i++) {
-			SendCommand(self, `GET MP out${i}`)
-		}
 	} else {
 		self.log('warn', 'Unable to request data; Not connected to Device')
 	}

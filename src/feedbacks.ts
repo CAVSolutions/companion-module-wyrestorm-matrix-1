@@ -37,5 +37,57 @@ export function UpdateFeedbacks(self: WyrestormMatrixInstance): void {
 		},
 	}
 
+	//selected input
+	feedbacks.selectedInput = {
+		type: 'boolean',
+		name: 'Input Selected',
+		description: 'If the input is currently selected',
+		options: [
+			{
+				type: 'dropdown',
+				label: 'Input',
+				id: 'input',
+				default: '1',
+				choices: self.CHOICES_INPUTS,
+			},
+		],
+		defaultStyle: { color: combineRgb(255, 255, 255), bgcolor: combineRgb(0, 0, 255) },
+		callback: async (feedback) => {
+			const input = parseInt(String(feedback.options.input))
+
+			if (self.selectedInput === input) {
+				return true
+			}
+
+			return false
+		},
+	}
+
+	//selected output
+	feedbacks.selectedOutput = {
+		type: 'boolean',
+		name: 'Output Selected',
+		description: 'If the output is currently selected',
+		options: [
+			{
+				type: 'dropdown',
+				label: 'Output',
+				id: 'output',
+				default: '1',
+				choices: self.CHOICES_OUTPUTS,
+			},
+		],
+		defaultStyle: { color: combineRgb(255, 255, 255), bgcolor: combineRgb(0, 0, 255) },
+		callback: async (feedback) => {
+			const output = parseInt(String(feedback.options.output))
+
+			if (self.selectedOutput === output) {
+				return true
+			}
+
+			return false
+		},
+	}
+
 	self.setFeedbackDefinitions(feedbacks)
 }
