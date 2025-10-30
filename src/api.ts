@@ -124,12 +124,12 @@ function ProcessData(self: WyrestormMatrixInstance, msg: any): void {
 		}
 	}
 
-	//SW hdmiin4 out1 or MP hdmiin4 out1
+	//SW HDMIIN1 HDMIOUT4 or MP HDMIIN4 HDMIOUT1
 	if (msg.startsWith('SW') || msg.startsWith('MP')) {
 		const parts = msg.split(' ')
 		if (parts.length >= 3) {
-			const inputMatch = parts[1].match(/hdmiin(\d+)/) //hdmiin4
-			const outputMatch = parts[2].match(/hdmiout(\d+)/) //hdmiout1
+			const inputMatch = parts[1].match(/HDMIIN(\d+)/) //HDMIIN4
+			const outputMatch = parts[2].match(/HDMIOUT(\d+)/) //HDMIOUT1
 
 			if (inputMatch && outputMatch) {
 				const inputNum = parseInt(inputMatch[1])
