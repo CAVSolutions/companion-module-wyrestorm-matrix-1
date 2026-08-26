@@ -1,7 +1,7 @@
 {
-	"id": "wyrestorm-matrix",
-	"name": "wyrestorm-matrix",
-	"shortname": "wyrestorm-matrix",
+	"id": "wyrestorm-matrix2",
+	"name": "wyrestorm-matrix2",
+	"shortname": "wyrestorm-matrix2",
 	"description": "Controls Wyrestorm HDMI Matrix Switchers",
 	"version": "0.0.0",
 	"license": "MIT",
