@@ -22,7 +22,7 @@ async function executeCommand(self: WyrestormMatrixInstance, command: string): P
 		if (self.config.verbose) {
 			self.log('debug', `Sending command: ${command}`)
 		}
-		const sendBuf = Buffer.from(command + '\n', 'latin1')
+		const sendBuf = Buffer.from(command + '\r\n', 'latin1')
 		self.socket?.send(sendBuf)
 		self.lastCommand = command
 	} else {
@@ -61,8 +61,8 @@ export async function InitConnection(self: WyrestormMatrixInstance): Promise<voi
 				console.log('Got this: ', data.toString())
 				buffer += data.toString()
 				//if we have a LF, it is a complete message
-				if (buffer.endsWith('\n')) {
-					const parts = buffer.split('\n')
+				if (buffer.endsWith('\r\n')) {
+					const parts = buffer.split('\r\n')
 					buffer = ''
 
 					for (const part of parts) {
