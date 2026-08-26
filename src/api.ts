@@ -127,7 +127,7 @@ function ProcessData(self: WyrestormMatrixInstance, msg: any): void {
 		const parts = msg.split(' ')
 		if (parts.length >= 3) {
 			const inputMatch = parts[1].match(/HDMIIN(\d+)/) //HDMIIN4
-			const outputMatch = parts[2].match(/HDMIOUT(\d+)/) //HDMIOUT1
+			const outputMatch = parts[2].match(/OUT(\d+)/) //HDMIOUT1
 
 			if (inputMatch && outputMatch) {
 				const inputNum = parseInt(inputMatch[1])
